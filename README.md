@@ -77,28 +77,64 @@ zmk code cradio
 
 The keymap is located at `config/cradio.keymap`. Edit it to customize your layout.
 
+### Thumb Keys
+
+Each half has two thumb keys sitting side by side at the bottom. Here is what each one does:
+
+**Left half thumb keys (left to right):**
+- **TAB** — tap to type Tab. Hold to activate Layer 2 (Symbols).
+- **ENTER** — tap or hold to type Enter.
+
+**Right half thumb keys (left to right):**
+- **SPACE** — tap or hold to type Space.
+- **BACKSPACE** — tap to type Backspace. Hold to activate Layer 1 (Numbers & Navigation).
+
+Holding the **TAB key and BACKSPACE key at the same time** activates Layer 3 (Bluetooth & System).
+
 ### Layer Overview
 
-The default keymap has 4 layers:
+**Layer 0 — Base (always active)**  
+Standard QWERTY layout. See Home Row Mods below for extra functionality on the middle row.
 
-| Layer | How to activate | Contents |
-|-------|----------------|----------|
-| 0 — Base | Always active | QWERTY + home row mods |
-| 1 — Numbers & Nav | Hold right thumb key (Backspace) | Numbers 1–9, 0 + arrow keys, Home, End, PgUp, PgDn |
-| 2 — Symbols | Hold left thumb key (Tab) | Brackets, punctuation, special characters |
-| 3 — Bluetooth | Hold both thumb keys together | Bluetooth profiles, clear pairing, reset, bootloader |
+**Layer 1 — Numbers & Navigation**  
+Activated by holding the **BACKSPACE** key (right half, rightmost thumb key).  
+- Left half top row: 1 2 3 (positions Q W E), then INSERT on far left
+- Left half middle row: 4 5 6 (positions A S D), then DELETE on far left
+- Left half bottom row: 7 8 9 0 (positions Z X C V), CAPS WORD on far left
+- Right half top row: HOME, PAGE DOWN, PAGE UP, END, colon
+- Right half middle row: LEFT, DOWN, UP, RIGHT arrows, semicolon
+
+**Layer 2 — Symbols**  
+Activated by holding the **TAB** key (left half, leftmost thumb key).  
+- Left half: ! @ # $ % on middle row, [ { } on top row
+- Right half: ^ ( ) ] ~ on top row, * - = \ ` on middle row, & _ + | on bottom row
+
+**Layer 3 — Bluetooth & System**  
+Activated by holding **TAB and BACKSPACE at the same time**.  
+- Q key (left half): System reset
+- P key (right half): System reset
+- A key (left half): Bootloader mode
+- ' key (right half): Bootloader mode
+- R key: Bluetooth profile 0
+- T key: Bluetooth profile 1  (not yet mapped in default keymap)
+- V key (left half): **Clear Bluetooth pairing**
 
 ### Home Row Mods
 
-The home row keys double as modifiers when held:
+The keys on the middle row (home row) of each half double as modifier keys when held down. A quick tap types the letter; holding activates the modifier.
 
-| Key | Tap | Hold |
-|-----|-----|------|
+**Left half middle row (left to right):**
+| Physical key | Tap | Hold |
+|---|---|---|
 | A | A | Left Shift |
 | S | S | Left Alt |
 | D | D | Left Ctrl |
-| F | F | Left GUI |
-| J | J | Right GUI |
+| F | F | Left GUI (Super) |
+
+**Right half middle row (left to right):**
+| Physical key | Tap | Hold |
+|---|---|---|
+| J | J | Right GUI (Super) |
 | K | K | Right Ctrl |
 | L | L | Right Alt |
 | ' | ' | Right Shift |

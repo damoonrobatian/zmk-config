@@ -48,10 +48,10 @@ zmk --version
 
 ## 2. Create the zmk-config Repository
 
-Navigate to where you want the config folder to live, then run:
+Navigate to where you want the config folder to live (e.g., ~/Dropbox), then run:
 
 ```bash
-cd ~/Dropbox
+cd <path/to/where/you/want/install/local/git/repo>
 zmk init
 ```
 

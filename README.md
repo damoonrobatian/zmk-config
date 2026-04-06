@@ -55,24 +55,19 @@ cd <path/to/where/you/want/install/local/git/repo>
 zmk init
 ```
 
-- Select **"Create a new ZMK config repo"**
-- Follow the prompts to create and clone the repo from GitHub
-- Accept the default directory name `zmk-config`
+Answer the prompts as follows:
+
+- **Create or clone?** → Select **"Create a new ZMK config repo"**
+- A browser window will open → log into GitHub if needed → click the green **"Create repository"** button
+- Once created, click the green **"<> Code"** button → copy the HTTPS URL → paste it back in the terminal
+- **Directory name?** → Press Enter to accept the default `zmk-config`
+- **Add a keyboard now?** → Type `y` and press Enter
+- **Select a keyboard:** → Type `cradio` to search → select **cradio (Cradio/Sweep)**
+- **Select a controller:** → Select **nice_nano_v2**
 
 ---
 
-## 3. Add the Keyboard
-
-```bash
-zmk keyboard add
-```
-
-- Select **cradio** (Cradio/Sweep) from the list
-- Select **nice_nano_v2** as the controller
-
----
-
-## 4. Edit the Keymap
+## 3. Edit the Keymap
 
 Open the keymap file:
 
@@ -110,7 +105,7 @@ The home row keys double as modifiers when held:
 
 ---
 
-## 5. Build the Firmware
+## 4. Build the Firmware
 
 Commit and push changes to GitHub to trigger a build:
 
@@ -134,7 +129,7 @@ Wait for the build to complete (green checkmark), then download the `firmware.zi
 
 ---
 
-## 6. Flash the Firmware
+## 5. Flash the Firmware
 
 ### Enter Bootloader Mode
 
@@ -153,13 +148,13 @@ Wait for the build to complete (green checkmark), then download the `firmware.zi
 
 ---
 
-## 7. Pairing the Keyboard Halves
+## 6. Pairing the Keyboard Halves
 
 The two halves pair automatically over Bluetooth when both are turned on. No manual pairing is needed.
 
 ---
 
-## 8. Connecting via Bluetooth
+## 7. Connecting via Bluetooth
 
 1. Make sure both halves are turned on
 2. Open Bluetooth settings on your computer

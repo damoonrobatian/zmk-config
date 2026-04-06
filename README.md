@@ -77,6 +77,17 @@ zmk code cradio
 
 The keymap is located at `config/cradio.keymap`. Edit it to customize your layout.
 
+### Layer Overview
+
+| Layer | How to activate | Contents |
+|-------|----------------|----------|
+| 0 — Base | Always active | QWERTY + home row mods |
+| 1 — Numbers & Nav | Hold the BACKSPACE key on the right half | Numbers, arrow keys, Home, End, PgUp, PgDn |
+| 2 — Symbols | Hold the TAB key on the left half | Brackets, punctuation, special characters |
+| 3 — Bluetooth | Hold TAB and BACKSPACE at the same time | Bluetooth profiles, clear pairing, reset, bootloader |
+
+---
+
 ### Thumb Keys
 
 Each half has two thumb keys sitting side by side at the bottom. Here is what each one does:

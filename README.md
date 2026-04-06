@@ -182,8 +182,10 @@ Wait for the build to complete (green checkmark), then download the `firmware.zi
 
 1. Plug the keyboard half into your computer via USB
 2. Turn it on
-3. **Double-tap the RESET button** on the PCB (labeled "RESET")
+3. **Double-tap the RESET button** on the PCB — it is labeled "RESET" on the board itself. Double-tapping means pressing it twice quickly, like a double-click.
 4. A drive called **NICENANO** will appear on your computer
+
+![Keyboard showing the RESET button location](pcb.png)
 
 ### Flash Each Half
 

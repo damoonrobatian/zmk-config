@@ -1,11 +1,11 @@
 # ZMK Firmware Setup — Ferris Sweep (Cradio)
 
-This documents the steps taken to set up ZMK firmware for a Ferris Sweep split keyboard with a ProMicro NRF52840 controller.
+This documents the ZMK firmware setup for a Ferris Sweep split keyboard using nice!nano v2 controllers.
 
 ## Hardware
 
 - **Keyboard:** Ferris Sweep (Cradio)
-- **Controller:** ProMicro NRF52840
+- **Controller:** nice!nano v2
 - **Firmware:** ZMK v0.3
 
 ---
@@ -81,54 +81,68 @@ The keymap is located at `config/cradio.keymap`. Edit it to customize your layou
 
 | Layer | How to activate | Contents |
 |-------|----------------|----------|
-| 0 — Base | Always active | QWERTY + home row mods |
-| 1 — Numbers & Nav | Hold the right thumb key on the right half (BACKSPACE) | Numbers, arrow keys, Home, End, PgUp, PgDn |
-| 2 — Symbols | Hold the left thumb key on the left half (TAB) | Brackets, punctuation, special characters |
-| 3 — Bluetooth | Hold both of the above keys at the same time | Bluetooth profiles, clear pairing, reset, bootloader |
+| 0 — Base | Always active | QWERTY, home row mods, tap dance, and thumb layer keys |
+| 1 — Navigation | Hold the right inner thumb key (`SPACE`) | Navigation, brackets, arrows, paging, delete/backspace helpers |
+| 2 — Number layer | Tap the right outer thumb key to toggle, or access it from Layer 0/2 thumb behavior | Numbers 0-9 |
+| 3 — Function layer | Hold the left inner thumb key (`TAB`) | F1-F12 |
+| 4 — System/Bluetooth | Activated automatically when Layers 1 and 2 are both active | Bluetooth profile select, clear pairing, reset, bootloader |
 
 ---
 
 ### Thumb Keys
 
-Each half has two thumb keys sitting side by side at the bottom. Here is what each one does:
+Each half has two thumb keys sitting side by side at the bottom. Here is what each one does on the base layer:
 
 **Left half thumb keys (left to right):**
-- **TAB** — tap to type Tab. Hold to activate Layer 2 (Symbols).
-- **ENTER** — tap or hold to type Enter.
+- **ESC** — tap to type Escape.
+- **TAB / Layer 3** — tap to type Tab. Hold to activate Layer 3 (Function keys).
 
 **Right half thumb keys (left to right):**
-- **SPACE** — tap or hold to type Space.
-- **BACKSPACE** — tap to type Backspace. Hold to activate Layer 1 (Numbers & Navigation).
+- **SPACE / Layer 1** — tap to type Space. Hold to activate Layer 1 (Navigation).
+- **Layer 2 toggle** — hold for momentary Layer 2 access, tap to toggle Layer 2 on and off.
 
-Holding the **TAB key and BACKSPACE key at the same time** activates Layer 3 (Bluetooth & System).
+Layer 4 is a conditional system layer: it turns on automatically whenever Layers 1 and 2 are both active at the same time.
 
 ### Layer Overview
 
 **Layer 0 — Base (always active)**  
-Standard QWERTY layout. See Home Row Mods below for extra functionality on the middle row.
+Standard QWERTY layout with home row mods. There are also two tap-dance keys:
+- **Q** — single tap sends `Q`, double tap sends `Alt+F4`
+- **W** — single tap sends `W`, double tap sends `Caps Lock`
 
-**Layer 1 — Numbers & Navigation**  
-Activated by holding the **BACKSPACE** key (right half, rightmost thumb key).  
-- Left half top row: 1 2 3 (positions Q W E), then INSERT on far left
-- Left half middle row: 4 5 6 (positions A S D), then DELETE on far left
-- Left half bottom row: 7 8 9 0 (positions Z X C V), CAPS WORD on far left
-- Right half top row: HOME, PAGE DOWN, PAGE UP, END, colon
-- Right half middle row: LEFT, DOWN, UP, RIGHT arrows, semicolon
+**Layer 1 — Navigation**  
+Activated by holding the **SPACE** key (right half, left thumb key).  
+- Left half top row: `{`, `[`, `Up`, `Page Up`, `(`
+- Left half middle row: `Home`, `Left`, `Enter`, `Right`, `End`
+- Left half bottom row: `\`, `` ` ``, `Down`, `Page Down`
+- Right half top row: `)`, `]`, `-`, `=`, `}`
+- Right half middle row: `Ctrl+Backspace`, `Backspace`, `Delete`, `Ctrl+Delete`, `;`
 
-**Layer 2 — Symbols**  
-Activated by holding the **TAB** key (left half, leftmost thumb key).  
-- Left half: ! @ # $ % on middle row, [ { } on top row
-- Right half: ^ ( ) ] ~ on top row, * - = \ ` on middle row, & _ + | on bottom row
+**Layer 2 — Number layer**  
+Available through the right outer thumb key.  
+- Top row: `1 2 3 4 5` on the left half, `6 7 8 9 0` on the right half
+- Other positions are transparent to the base layer
 
-**Layer 3 — Bluetooth & System**  
-Activated by holding **TAB and BACKSPACE at the same time**.  
-- Q key (left half): System reset
-- P key (right half): System reset
-- A key (left half): Bootloader mode
-- ' key (right half): Bootloader mode
-- R key: Bluetooth profile 0
-- T key: Bluetooth profile 1  (not yet mapped in default keymap)
-- V key (left half): **Clear Bluetooth pairing**
+**Layer 3 — Function layer**  
+Activated by holding the **TAB** key (left half, right thumb key).  
+- Top row: `F1-F5` on the left half, `F6-F10` on the right half
+- Middle row edges: `F11` on the far left and `F12` on the far right
+
+**Layer 4 — Bluetooth & System**  
+Activated automatically when Layers 1 and 2 are both active.  
+- Far left top key and far right top key: **System reset**
+- Far left home-row key and far right home-row key: **Bootloader**
+- Left half `T` position: Bluetooth profile 0
+- Left half `G` position: Bluetooth profile 1
+- Left half `B` position: Bluetooth profile 2
+- Left half `V` position: **Clear Bluetooth pairing**
+
+### Combos
+
+The keymap also defines a few two-key combos:
+- One combo sends **Keypad Num Lock**
+- One combo sends **Ctrl+Tab**
+- One combo sends **Ctrl+Shift+Tab**
 
 ### Home Row Mods
 
@@ -214,6 +228,6 @@ The two halves pair automatically over Bluetooth when both are turned on. No man
 
 If you need to clear the pairing (e.g. to connect to a new device):
 
-1. Activate Layer 3 by holding both thumb keys together
+1. Activate Layer 4 by turning on Layers 1 and 2 at the same time
 2. Press the **V** key (BT_CLR) on the left half
 3. Scan for the keyboard again on your device

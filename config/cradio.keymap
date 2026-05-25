@@ -35,6 +35,13 @@
             tapping-term-ms = <200>;
             bindings = <&kp Q>, <&kp LA(F4)>;
         };
+
+        td_w: tap_dance_w {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp W>, <&kp CAPS>;
+        };
     };
 
     combos {
@@ -47,13 +54,13 @@
 
         combo_ctrl_tab {
             timeout-ms = <50>;
-            key-positions = <12 13>;
+            key-positions = <2 3>;
             bindings = <&kp LC(TAB)>;
         };
 
         combo_ctrl_shift_tab {
             timeout-ms = <50>;
-            key-positions = <16 17>;
+            key-positions = <6 7>;
             bindings = <&kp LC(LS(TAB))>;
         };
     };
@@ -72,7 +79,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
-            &td_q      &kp W      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
+            &td_q      &td_w      &kp E      &kp R      &kp T          &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │   │  H       │  J       │  K       │  L       │ ' "      │
             HRML(A,        S,         D,         F)     &kp G          &kp H      HRMR(J,        K,         L,        SQT)

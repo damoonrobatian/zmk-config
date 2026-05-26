@@ -188,6 +188,26 @@ Wait for the build to complete (green checkmark), then download the `firmware.zi
 - `cradio_left-nice_nano_v2-zmk.uf2`
 - `cradio_right-nice_nano_v2-zmk.uf2`
 
+### Using GitHub Actions
+
+This repository is set up so GitHub Actions builds the firmware automatically whenever you push changes.
+
+The build matrix is defined in `build.yaml` and currently produces two firmware artifacts:
+- `cradio_left` for `nice_nano_v2`
+- `cradio_right` for `nice_nano_v2`
+
+To use GitHub Actions step by step:
+
+1. Make your changes in `config/cradio.keymap`, `config/cradio.conf`, or other config files.
+2. Commit and push the changes to GitHub.
+3. Open your repository on GitHub and click the **Actions** tab.
+4. Open the most recent workflow run and wait for both left and right builds to finish.
+5. If the run fails, open the failed job and read the log output to see which file or setting caused the error.
+6. When the run succeeds, download the build artifact, which is usually named `firmware`.
+7. Unzip it and use the resulting `.uf2` files to flash the keyboard halves.
+
+If you prefer the CLI, `zmk download` will download the artifact from the latest successful run for this repo.
+
 ---
 
 ## 5. Flash the Firmware
